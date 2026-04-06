@@ -7,12 +7,17 @@ import { BriefingResponse, RunwayWindComponent } from '@/lib/types';
 
 const MapPanel = dynamic(() => import('@/components/MapPanel'), { ssr: false });
 
-const initialForm = {
+const initialForm: {
+  route: string;
+  altitudeFt: number;
+  flightRules: 'VFR' | 'IFR';
+  corridorMiles: number;
+} = {
   route: 'KLAF KIND',
   altitudeFt: 5500,
   flightRules: 'VFR',
   corridorMiles: 50
-} as const;
+};
 
 export default function Page() {
   const [form, setForm] = useState({ ...initialForm });
